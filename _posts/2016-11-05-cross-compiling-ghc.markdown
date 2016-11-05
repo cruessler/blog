@@ -3,8 +3,6 @@ layout: post
 title:  "Cross-compiling GHC 7.10.3 with a musl toolchain"
 date:   2016-11-05 19:07:00 +0200
 ---
-# Cross-compiling GHC 7.10.3 with a musl toolchain
-
 In my endeavor to statically compile the Elm compiler with a musl-based GHC I
 first had to cross-compile the latter since my system (Ubuntu 16.04) is
 glibc-based. This post describes how I did that. Most of it is inspired [by][1]
