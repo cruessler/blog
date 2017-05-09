@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Statically compiling the Elm compiler (0.17) on a musl-based Gentoo system"
+title:  "Statically compiling the Elm compiler (0.17/0.18) on a musl-based Gentoo system"
 date:   2016-11-06 19:12:00 +0200
 categories: elm
 ---
@@ -17,6 +17,10 @@ Haskell compiler (GHC) which is then used to statically compile the Elm
 compiler. Some paths that didn’t lead me to a destination involved Alpine Linux
 as well as cross-compilation on my host system using `crosstools-ng` (although
 I might have given up on those too early).
+
+### Update 2017-05-09
+
+The process described here can be also used to compile Elm 0.18.
 
 ## Prerequisites
 
@@ -226,3 +230,7 @@ stage3/root/elm-platform/Elm-Platform/0.17/.cabal-sandbox/bin/elm-make: ELF 64-b
     [rest of output omitted]
 
 The resulting executables run on a wide variety of Linux systems.
+
+### Update 2017-05-09
+
+You can replace `0.17` with `0.18` if you want to compile Elm 0.18.
