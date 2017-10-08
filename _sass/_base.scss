@@ -10,6 +10,17 @@ dl, dd, ol, ul, figure {
 
 
 
+// The background of code blocks is supposed to span the entire width of the
+// viewport. Setting the code blocks’ widths to the viewport’s width doesn’t
+// take into account the fraction that is lost to the vertical scrollbar
+// itself, though, and would lead to a horizontal scrollbar being shown. The
+// following hides the horizontal scrollbar.
+html, body {
+  overflow-x: hidden;
+}
+
+
+
 /**
  * Basic styling
  */

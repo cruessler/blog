@@ -7,6 +7,17 @@
 
     .highlighter-rouge & {
       background: #eef;
+
+      // Let the background of code blocks span the entire viewport’s width.
+      // Margin and padding on both sides are equal to the difference between
+      // the viewport’s width and the top-most wrapper div’s width.
+      //
+      // See https://css-tricks.com/full-width-containers-limited-width-parents/
+      margin-left: calc(-50vw + 50%);
+      margin-right: calc(-50vw + 50%);
+      // Align all code with the rest of a page’s text.
+      padding-left: calc(50vw - 50%);
+      padding-right: calc(50vw - 50%);
     }
 
     .c     { color: #998; font-style: italic } // Comment
