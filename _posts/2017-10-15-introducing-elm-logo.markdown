@@ -3,6 +3,8 @@ layout: post
 title:  "Introducing elm-logo: a Logo interpreter in Elm"
 date:   2017-10-15 23:11:00 +0200
 categories: elm elm-logo
+redirect_from:
+  - /elm/elm-logo/2017/10/15/introducing-elm-logo.html
 ---
 
 Recently, I have started developing a Logo interpreter in Elm.

@@ -3,6 +3,8 @@ layout: post
 title:  "Statements and expressions in Logo"
 date:   2018-05-21 13:30:00 +0200
 categories: elm elm-logo
+redirect_from:
+  - /elm/elm-logo/2018/05/21/statements-and-expressions.html
 ---
 
 Most programming languages have a distinction between expressions and

@@ -3,6 +3,8 @@ layout: post
 title:  "Changing the input method to xim"
 date:   2017-10-15 12:47:00 +0200
 categories: today-i-debugged
+redirect_from:
+  - /today-i-debugged/2017/10/15/input-method.html
 ---
 
 ## The problem

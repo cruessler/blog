@@ -22,3 +22,8 @@ markdown: kramdown
 show_drafts: false
 
 exclude: ["vendor", "Gemfile*"]
+
+permalink: /:year/:month/:day/:title:output_ext
+
+plugins:
+  - jekyll-redirect-from

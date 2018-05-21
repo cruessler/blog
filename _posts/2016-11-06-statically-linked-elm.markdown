@@ -3,6 +3,8 @@ layout: post
 title:  "Statically compiling the Elm compiler (0.17/0.18) on a musl-based Gentoo system"
 date:   2016-11-06 19:12:00 +0200
 categories: elm
+redirect_from:
+  - /elm/2016/11/06/statically-linked-elm.html
 ---
 Some time ago, I wanted to use Elm on a server that was running CentOS 5. At
 first, this proved to be impossible as the target system was not able to run
