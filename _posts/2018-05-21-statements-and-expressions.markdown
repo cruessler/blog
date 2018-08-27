@@ -73,9 +73,10 @@ return a value for now). This simplifies the parser at the expense of turning
 some runtime errors into parse errors: the first version won’t, e. g.,
 recognize `"foo` as syntactically valid.
 
-In the next post, we will have a look at how the VM is structured. We will
-explore what data structures are used to represent a Logo program and how the
-VM makes use of them to execute a program.
+[In the next post][next-post], we will have a look at how the VM is structured.
+We will explore what data structures are used to represent a Logo program and
+how the VM makes use of them to execute a program.
 
 [wikipedia-expression]: https://en.wikipedia.org/wiki/Expression_(computer_science)
 [wikipedia-statement]: https://en.wikipedia.org/wiki/Statement_(computer_science)
+[next-post]: {{ site.baseurl }}{% post_url 2018-08-27-vm-fundamentals %}
