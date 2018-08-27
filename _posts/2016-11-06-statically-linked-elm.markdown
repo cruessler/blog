@@ -233,7 +233,7 @@ g. outside our build system (note the `$ ` again, denoting we have left our
 Gentoo-based build system and are again on our Ubuntu-based host system).
 
     $ file stage3/root/elm-platform/Elm-Platform/0.17/.cabal-sandbox/bin/elm-make
-stage3/root/elm-platform/Elm-Platform/0.17/.cabal-sandbox/bin/elm-make: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, stripped
+    stage3/root/elm-platform/Elm-Platform/0.17/.cabal-sandbox/bin/elm-make: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), statically linked, stripped
     $ stage3/root/elm-platform/Elm-Platform/0.17/.cabal-sandbox/bin/elm-make --help
     elm-make 0.17 (Elm Platform 0.17.0)
     [rest of output omitted]
