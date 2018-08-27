@@ -22,7 +22,14 @@ I might have given up on those too early).
 
 ### Update 2017-05-09
 
-The process described here can be also used to compile Elm 0.18.
+The process described for Elm 0.17 can be also used to compile Elm 0.18.
+
+### Update 2018-08-27
+
+The process for compiling Elm 0.19 has changed a little, but it is still
+possible to get a statically linked Elm binary. See [my newer post]({{
+site.baseurl }}{% post_url 2018-08-27-statically-linked-elm-0-19 %}) for
+details.
 
 ## Prerequisites
 
