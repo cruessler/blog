@@ -5,21 +5,6 @@
     background: #fff;
     @extend %vertical-rhythm;
 
-    .highlighter-rouge & {
-      background: #eef;
-
-      // Let the background of code blocks span the entire viewport’s width.
-      // Margin and padding on both sides are equal to the difference between
-      // the viewport’s width and the top-most wrapper div’s width.
-      //
-      // See https://css-tricks.com/full-width-containers-limited-width-parents/
-      margin-left: calc(-50vw + 50%);
-      margin-right: calc(-50vw + 50%);
-      // Align all code with the rest of a page’s text.
-      padding-left: calc(50vw - 50%);
-      padding-right: calc(50vw - 50%);
-    }
-
     .c     { color: #998; font-style: italic } // Comment
     .err   { color: #a61717; background-color: #e3d2d2 } // Error
     .k     { font-weight: bold } // Keyword
@@ -79,4 +64,43 @@
     .vg    { color: #008080 } // Name.Variable.Global
     .vi    { color: #008080 } // Name.Variable.Instance
     .il    { color: #099 } // Literal.Number.Integer.Long
+}
+
+.highlighter-rouge {
+    & div.highlight {
+        background: #eef;
+
+        // Let the background of code blocks span the entire viewport’s width.
+        // Margin and padding on both sides are equal to the difference between
+        // the viewport’s width and the top-most wrapper div’s width.
+        //
+        // See https://css-tricks.com/full-width-containers-limited-width-parents/
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        // Align all code with the rest of a page’s text.
+        padding-left: calc(50vw - 50%);
+        padding-right: calc(50vw - 50%);
+    }
+
+    & pre.highlight {
+        background: #eef;
+
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+    }
+}
+
+blockquote .highlighter-rouge {
+    & div.highlight {
+        margin-left: initial;
+        margin-right: initial;
+        padding-left: initial;
+        padding-right: initial;
+    }
+
+    & pre.highlight {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
 }
