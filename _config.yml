@@ -21,7 +21,7 @@ markdown: kramdown
 
 show_drafts: false
 
-exclude: ["vendor", "Gemfile*"]
+exclude: ["vendor", "Gemfile*", "Session.vim"]
 
 permalink: /:year/:month/:day/:title:output_ext
 
