@@ -16,5 +16,8 @@ print "| ]|
 foreach :a [ type char ? ]
 {% endelm_logo_snippet %}
 
+This particular quine comes from [Rosetta Code][rosettacode-quine].
+
 [elm-logo]: https://c.rubler.net/elm-logo/
+[rosettacode-quine]: https://rosettacode.org/wiki/Quine#Logo
 [wikipedia-quine]: https://en.wikipedia.org/wiki/Quine_(computing)
