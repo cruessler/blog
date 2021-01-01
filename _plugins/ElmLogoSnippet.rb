@@ -10,7 +10,7 @@ module Jekyll
 #{snippet}
 ```
 
-<a href=\"#{link}\">Open snippet in elm-logo (in elm-logo, click ”Run” to run it)</a>"
+<a href=\"#{link}\">Open snippet in elm-logo (in elm-logo, click “Run” to run it)</a>"
     end
   end
 end
