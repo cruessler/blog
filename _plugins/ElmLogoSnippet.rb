@@ -1,3 +1,5 @@
+require 'uri'
+
 module Jekyll
   class ElmLogoSnippetBlock < Liquid::Block
 
