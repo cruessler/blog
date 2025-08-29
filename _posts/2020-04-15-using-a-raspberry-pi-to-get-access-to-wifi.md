@@ -82,7 +82,7 @@ Configure port forwarding as described [in the docs][rpi-doc-wifi]:
 > Reboot and ensure it still functions.
 
 Now, your machine will automatically get an IP address when it is connected to
-the Rapsberry, and it will, assuming the Pi is itself connected, use that
+the Raspberry, and it will, assuming the Pi is itself connected, use that
 connection to access the internet.
 
 [rpi-forum-howto]: https://www.raspberrypi.org/forums/viewtopic.php?t=132674
