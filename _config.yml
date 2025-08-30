@@ -9,8 +9,8 @@
 title: c.rubler.net/blog
 email: christoph.ruessler@mailbox.org
 description: > # this means to ignore newlines until "baseurl:"
-  About things I like and use: Linux, Ubuntu, KDE, Elixir, Phoenix, Elm, Ruby,
-    Rails
+  About things I like and use: Linux, Ubuntu, KDE, Rust, Elixir, Phoenix, Elm,
+    Ruby, Rails
 baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://c.rubler.net" # the base hostname & protocol for your site
 twitter_username: cruessler
