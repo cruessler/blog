@@ -15,6 +15,10 @@ baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "https://c.rubler.net" # the base hostname & protocol for your site
 github_username:  cruessler
 
+author:
+  name: Christoph Rüßler
+  email: "christoph.ruessler@mailbox.org"
+
 # Build settings
 markdown: kramdown
 
@@ -24,5 +28,13 @@ exclude: ["vendor", "Gemfile*", "Session.vim"]
 
 permalink: /:year/:month/:day/:title:output_ext
 
+theme: minima
 plugins:
   - jekyll-redirect-from
+
+minima:
+  skin: auto
+  social_links:
+    - title: Profile of @cruessler at GitHub
+      icon: github
+      url: "https://github.com/cruessler"
