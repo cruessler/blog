@@ -1,0 +1,47 @@
+// The background of code blocks is supposed to span the entire width of the
+// viewport. Setting the code blocks’ widths to the viewport’s width doesn’t
+// take into account the fraction that is lost to the vertical scrollbar
+// itself, though, and would lead to a horizontal scrollbar being shown. The
+// following hides the horizontal scrollbar.
+html, body {
+  overflow-x: hidden;
+}
+
+.highlighter-rouge {
+    & div.highlight {
+        background: var(--minima-code-background-color);
+
+        // Let the background of code blocks span the entire viewport’s width.
+        // Margin and padding on both sides are equal to the difference between
+        // the viewport’s width and the top-most wrapper div’s width.
+        //
+        // See https://css-tricks.com/full-width-containers-limited-width-parents/
+        margin-left: calc(-50vw + 50%);
+        margin-right: calc(-50vw + 50%);
+        // Align all code with the rest of a page’s text.
+        padding-left: calc(50vw - 50%);
+        padding-right: calc(50vw - 50%);
+    }
+
+    & pre.highlight {
+        background: var(--minima-code-background-color);
+
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+    }
+}
+
+blockquote .highlighter-rouge {
+    & div.highlight {
+        margin-left: initial;
+        margin-right: initial;
+        padding-left: initial;
+        padding-right: initial;
+    }
+
+    & pre.highlight {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
