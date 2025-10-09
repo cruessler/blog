@@ -98,7 +98,6 @@ DEPENDENCIES
   jekyll-feed (~> 0.12)
   jekyll-redirect-from
   minima!
-  webrick (~> 1.9)
 
 RUBY VERSION
    ruby 3.3.5p100
