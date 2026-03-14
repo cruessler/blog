@@ -18,9 +18,12 @@ The comparison was run between [this commit that contained the
 optimization][commit-e63d487fb] and [its parent][commit-29040a827]. The full
 results can also be found as [`json` files in this gist][benchmark-results].
 
+**Update 2026-03-14**: I’ve changed the plots to use shades of blue instead of
+variants of magenta and green.
+
 [pr-2438]: https://github.com/GitoxideLabs/gitoxide/pull/2438
 [run-benchmark]: https://github.com/cruessler/gix-benchmarks/blob/16fb1087c834322464b855e9e5fbd11e2dbe17db/run_benchmark.py
-[plot-benchmark]: https://github.com/cruessler/gix-benchmarks/blob/16fb1087c834322464b855e9e5fbd11e2dbe17db/plot_benchmark.py
+[plot-benchmark]: https://github.com/cruessler/gix-benchmarks/blob/45979d7098d39615ebdfe4ef1d5031ce2864f3de/plot_benchmark.py
 [seaborn]: https://seaborn.pydata.org/index.html
 [benchmark-results]: https://gist.github.com/cruessler/6f0858b862a0442d0904758742d74446
 [commit-e63d487fb]: https://github.com/GitoxideLabs/gitoxide/commit/e63d487fb1b1425a9458fc7400517ad2c0280fd2
