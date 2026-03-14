@@ -3,10 +3,10 @@ layout: post
 title: gix-blame performance improved by a change in gix-diff
 date: 2026-03-14 10:45 +0100
 ---
-In February 2026, we got a PR in `gitoxide` that substantially improved
-`gix-diff`’s tree diff performance. Since `gix-blame`’s algorithm uses a lot of
-tree diffs under the hood, I wanted to know what the impact on `gix-blame`’s
-performance was.
+In February 2026, we got a [PR in `gitoxide`][pr-2438] that substantially
+improved `gix-diff`’s tree diff performance. Since `gix-blame`’s algorithm uses
+a lot of tree diffs under the hood, I wanted to know what the impact on
+`gix-blame`’s performance was.
 
 I set up a benchmark using `hyperfine` in [this script][run-benchmark] and,
 with the help of [seaborn], plotted the results using [another
