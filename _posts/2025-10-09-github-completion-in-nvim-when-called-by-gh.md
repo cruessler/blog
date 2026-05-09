@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Github completion in `nvim` when called by `gh`
+title: Github completion in nvim when called by gh
 date: 2025-10-09 20:36 +0200
 ---
 I frequently use the [Github CLI][gh] for things like creating PRs (`gh pr

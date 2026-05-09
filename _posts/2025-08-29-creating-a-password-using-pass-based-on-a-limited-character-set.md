@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Creating a password using `pass` based on a limited character set
+title: Creating a password using pass based on a limited character set
 date: 2025-08-29 21:25 +0200
 ---
 Recently, I had to create a new password for a web service that had very
