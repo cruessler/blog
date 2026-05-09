@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Workaround for missing `cargo install --name`
+title: Workaround for missing cargo install --name
 date: 2025-08-30 11:57 +0200
 ---
 Last week, I wanted to install a Rust binary using `cargo install`, but I wanted to

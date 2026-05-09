@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Using SvelteKit’s `resolve` with dynamic paths and parameters
+title: Using SvelteKit’s resolve with dynamic paths and parameters
 date: 2025-09-15 16:07 +0200
 ---
 I’m just documenting a minor doc issue I had with SvelteKit recently, in order
