@@ -22,124 +22,89 @@ when it comes to files that have changed a lot over the course of this repo’s
 history, such as `CHANGELOG.md` or `Cargo.toml`, but it’s still rather close,
 so I wouldn’t draw too many conclusions.
 
-## Detailed results
+## Plots
 
-```
-❯ env GIT_DIR="$HOME/github/Byron/gitoxide/.git" BASELINE_EXECUTABLE="$HOME/bin/gix-blame-2026-01-25-3b6650a66" COMPARISON_EXECUTABLE="$HOME/bin/gix-blame-experimental-2026-01-25-3b6650a66" just benchmark-gix-blame
-hyperfine "${BASELINE_EXECUTABLE} blame CHANGELOG.md" "${COMPARISON_EXECUTABLE} blame CHANGELOG.md"
-Benchmark 1: /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame CHANGELOG.md
-  Time (mean ± σ):     141.6 ms ±   3.3 ms    [User: 100.8 ms, System: 40.7 ms]
-  Range (min … max):   133.7 ms … 146.6 ms    21 runs
+Both `baseline` and `comparison` are referring to `gix` executables compiled
+from [this commit][commit]. `comparison` was compiled with `--features
+blame-experimental` while `baseline` was compiled without that flag. Here are
+[the raw results.][benchmark-results] This is the script used to [run the
+benchmark][run-benchmark]. This is the script used to [create the
+plots][plot-benchmark].
 
-Benchmark 2: /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame CHANGELOG.md
-  Time (mean ± σ):     137.0 ms ±   3.4 ms    [User: 95.7 ms, System: 41.2 ms]
-  Range (min … max):   126.5 ms … 142.3 ms    21 runs
+[commit]: https://github.com/GitoxideLabs/gitoxide/commit/3b6650a66e957d124964c7f41cc9895d4292598b
+[benchmark-results]: https://gist.github.com/cruessler/666ff15acf81d646a6b4cbb9809f2f99
+[run-benchmark]: https://github.com/cruessler/gix-benchmarks/blob/6191179dcccee5dd50f7e7ce8482e29c2ed48d5d/run_benchmark.py
+[plot-benchmark]: https://github.com/cruessler/gix-benchmarks/blob/6191179dcccee5dd50f7e7ce8482e29c2ed48d5d/plot_benchmark.py
 
-Summary
-  /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame CHANGELOG.md ran
-    1.03 ± 0.04 times faster than /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame CHANGELOG.md
+<figure>
+  <img
+    src="{% link /assets/catplot-update-to-imara-diff-0-2.webp %}"
+    alt="Catplot of running 2 versions of gix-blame on a set of files: baseline
+        is the version using imara-diff 0.1.8, comparison is the one using
+        imara-diff 0.2.0" />
+  <figcaption>Catplot of running 2 versions of
+    <code class="language-plaintext">gix-blame</code> on a set of files:
+        baseline is the version using imara-diff 0.1.8, comparison is the one
+        using imara-diff 0.2.0
+  </figcaption>
+</figure>
 
-hyperfine "${BASELINE_EXECUTABLE} blame STABILITY.md" "${COMPARISON_EXECUTABLE} blame STABILITY.md"
-Benchmark 1: /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame STABILITY.md
-  Time (mean ± σ):      43.7 ms ±   2.2 ms    [User: 30.1 ms, System: 13.3 ms]
-  Range (min … max):    40.8 ms …  52.5 ms    56 runs
+<figure>
+  <img
+    src="{% link /assets/boxplot-update-to-imara-diff-0-2.webp %}"
+    alt="Boxplot of running 2 versions of gix-blame on a set of files: baseline
+        is the version using imara-diff 0.1.8, comparison is the one using
+        imara-diff 0.2.0" />
+  <figcaption>Boxplot of running 2 versions of
+    <code class="language-plaintext">gix-blame</code> on a set of files:
+        baseline is the version using imara-diff 0.1.8, comparison is the one
+        using imara-diff 0.2.0
+  </figcaption>
+</figure>
 
-Benchmark 2: /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame STABILITY.md
-  Time (mean ± σ):      42.9 ms ±   1.4 ms    [User: 30.1 ms, System: 12.6 ms]
-  Range (min … max):    40.8 ms …  47.2 ms    65 runs
+## Details for individual benchmark runs
 
-Summary
-  /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame STABILITY.md ran
-    1.02 ± 0.06 times faster than /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame STABILITY.md
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `baseline CHANGELOG.md` | 145.7 ± 3.1 | 138.3 | 149.7 | 1.05 ± 0.04 |
+| `comparison CHANGELOG.md` | 139.4 ± 3.8 | 133.2 | 147.6 | 1.00 |
 
-hyperfine "${BASELINE_EXECUTABLE} blame README.md" "${COMPARISON_EXECUTABLE} blame README.md"
-Benchmark 1: /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame README.md
-  Time (mean ± σ):     102.6 ms ±   3.9 ms    [User: 72.9 ms, System: 29.4 ms]
-  Range (min … max):    95.0 ms … 109.6 ms    28 runs
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `baseline STABILITY.md` | 46.1 ± 1.9 | 42.6 | 50.5 | 1.02 ± 0.06 |
+| `comparison STABILITY.md` | 45.2 ± 1.7 | 42.9 | 50.3 | 1.00 |
 
-Benchmark 2: /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame README.md
-  Time (mean ± σ):     102.2 ms ±   2.1 ms    [User: 72.2 ms, System: 29.9 ms]
-  Range (min … max):    98.8 ms … 106.7 ms    28 runs
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `baseline README.md` | 105.2 ± 2.9 | 100.1 | 111.8 | 1.02 ± 0.04 |
+| `comparison README.md` | 102.9 ± 2.6 | 97.9 | 107.2 | 1.00 |
 
-Summary
-  /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame README.md ran
-    1.00 ± 0.04 times faster than /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame README.md
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `baseline Cargo.toml` | 88.0 ± 3.7 | 82.2 | 96.8 | 1.00 |
+| `comparison Cargo.toml` | 88.5 ± 2.7 | 83.1 | 94.0 | 1.01 ± 0.05 |
 
-hyperfine "${BASELINE_EXECUTABLE} blame Cargo.toml" "${COMPARISON_EXECUTABLE} blame Cargo.toml"
-Benchmark 1: /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame Cargo.toml
-  Time (mean ± σ):      86.3 ms ±   2.7 ms    [User: 61.8 ms, System: 24.3 ms]
-  Range (min … max):    81.8 ms …  91.9 ms    34 runs
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `baseline gix-blame/src/file/function.rs` | 35.0 ± 1.8 | 31.4 | 39.0 | 1.02 ± 0.07 |
+| `comparison gix-blame/src/file/function.rs` | 34.4 ± 1.4 | 32.0 | 38.5 | 1.00 |
 
-Benchmark 2: /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame Cargo.toml
-  Time (mean ± σ):      82.7 ms ±   2.3 ms    [User: 59.7 ms, System: 22.8 ms]
-  Range (min … max):    79.7 ms …  90.2 ms    34 runs
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `baseline gix-path/src/env/mod.rs` | 37.1 ± 1.6 | 34.2 | 40.5 | 1.00 |
+| `comparison gix-path/src/env/mod.rs` | 37.2 ± 1.6 | 34.6 | 40.9 | 1.00 ± 0.06 |
 
-Summary
-  /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame Cargo.toml ran
-    1.04 ± 0.04 times faster than /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame Cargo.toml
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `baseline gix-index/tests/index/file/write.rs` | 55.3 ± 2.0 | 50.8 | 59.2 | 1.00 |
+| `comparison gix-index/tests/index/file/write.rs` | 56.0 ± 2.4 | 51.0 | 60.1 | 1.01 ± 0.06 |
 
-hyperfine "${BASELINE_EXECUTABLE} blame gix-blame/src/file/function.rs" "${COMPARISON_EXECUTABLE} blame gix-blame/src/file/function.rs"
-Benchmark 1: /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame gix-blame/src/file/function.rs
-  Time (mean ± σ):      31.6 ms ±   1.6 ms    [User: 21.7 ms, System: 9.7 ms]
-  Range (min … max):    29.6 ms …  38.0 ms    77 runs
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `baseline gix-object/src/lib.rs` | 81.7 ± 2.2 | 78.0 | 86.5 | 1.03 ± 0.04 |
+| `comparison gix-object/src/lib.rs` | 79.7 ± 2.6 | 74.3 | 84.3 | 1.00 |
 
-Benchmark 2: /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame gix-blame/src/file/function.rs
-  Time (mean ± σ):      31.3 ms ±   0.9 ms    [User: 20.8 ms, System: 10.4 ms]
-  Range (min … max):    29.6 ms …  34.6 ms    93 runs
-
-Summary
-  /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame gix-blame/src/file/function.rs ran
-    1.01 ± 0.06 times faster than /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame gix-blame/src/file/function.rs
-
-hyperfine "${BASELINE_EXECUTABLE} blame gix-path/src/env/mod.rs" "${COMPARISON_EXECUTABLE} blame gix-path/src/env/mod.rs"
-Benchmark 1: /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame gix-path/src/env/mod.rs
-  Time (mean ± σ):      35.7 ms ±   2.7 ms    [User: 25.3 ms, System: 10.0 ms]
-  Range (min … max):    32.5 ms …  50.9 ms    58 runs
-
-Benchmark 2: /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame gix-path/src/env/mod.rs
-  Time (mean ± σ):      35.4 ms ±   2.0 ms    [User: 25.2 ms, System: 10.1 ms]
-  Range (min … max):    32.6 ms …  43.4 ms    79 runs
-
-Summary
-  /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame gix-path/src/env/mod.rs ran
-    1.01 ± 0.10 times faster than /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame gix-path/src/env/mod.rs
-
-hyperfine "${BASELINE_EXECUTABLE} blame gix-index/tests/index/file/write.rs" "${COMPARISON_EXECUTABLE} blame gix-index/tests/index/file/write.rs"
-Benchmark 1: /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame gix-index/tests/index/file/write.rs
-  Time (mean ± σ):      53.2 ms ±   2.6 ms    [User: 40.1 ms, System: 12.8 ms]
-  Range (min … max):    49.0 ms …  63.0 ms    47 runs
-
-Benchmark 2: /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame gix-index/tests/index/file/write.rs
-  Time (mean ± σ):      53.3 ms ±   2.5 ms    [User: 40.8 ms, System: 12.3 ms]
-  Range (min … max):    49.1 ms …  60.5 ms    58 runs
-
-Summary
-  /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame gix-index/tests/index/file/write.rs ran
-    1.00 ± 0.07 times faster than /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame gix-index/tests/index/file/write.rs
-
-hyperfine "${BASELINE_EXECUTABLE} blame gix-object/src/lib.rs" "${COMPARISON_EXECUTABLE} blame gix-object/src/lib.rs"
-Benchmark 1: /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame gix-object/src/lib.rs
-  Time (mean ± σ):      75.6 ms ±   2.8 ms    [User: 56.9 ms, System: 18.4 ms]
-  Range (min … max):    71.4 ms …  82.1 ms    37 runs
-
-Benchmark 2: /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame gix-object/src/lib.rs
-  Time (mean ± σ):      76.5 ms ±   2.9 ms    [User: 59.2 ms, System: 17.0 ms]
-  Range (min … max):    71.6 ms …  82.7 ms    39 runs
-
-Summary
-  /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame gix-object/src/lib.rs ran
-    1.01 ± 0.05 times faster than /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame gix-object/src/lib.rs
-
-hyperfine "${BASELINE_EXECUTABLE} blame gix-odb/src/store_impls/loose/write.rs" "${COMPARISON_EXECUTABLE} blame gix-odb/src/store_impls/loose/write.rs"
-Benchmark 1: /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame gix-odb/src/store_impls/loose/write.rs
-  Time (mean ± σ):      75.1 ms ±   2.3 ms    [User: 58.8 ms, System: 16.0 ms]
-  Range (min … max):    70.4 ms …  81.3 ms    36 runs
-
-Benchmark 2: /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame gix-odb/src/store_impls/loose/write.rs
-  Time (mean ± σ):      77.1 ms ±   3.2 ms    [User: 60.1 ms, System: 16.9 ms]
-  Range (min … max):    70.8 ms …  82.3 ms    37 runs
-
-Summary
-  /home/christoph/bin/gix-blame-2026-01-25-3b6650a66 blame gix-odb/src/store_impls/loose/write.rs ran
-    1.03 ± 0.05 times faster than /home/christoph/bin/gix-blame-experimental-2026-01-25-3b6650a66 blame gix-odb/src/store_impls/loose/write.rs
-```
+| Command | Mean [ms] | Min [ms] | Max [ms] | Relative |
+|:---|---:|---:|---:|---:|
+| `baseline gix-odb/src/store_impls/loose/write.rs` | 79.5 ± 2.7 | 75.0 | 84.9 | 1.00 |
+| `comparison gix-odb/src/store_impls/loose/write.rs` | 80.7 ± 2.3 | 75.8 | 86.1 | 1.02 ± 0.05 |
